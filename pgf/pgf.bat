@@ -1,5 +1,5 @@
 @echo off
-start cmd /k "T:\TechServices-FP3\Techs\Jared\Scripts_J\IndividualScripts\Edge_Disable.bat"
+start cmd /k "Edge_Disable.bat"
 cls
 net session >nul 2>&1
 if %errorlevel% == 0 (
@@ -35,7 +35,7 @@ goto skipHPImageAssistant
 :installHPImageAssistant
 echo.
 echo Starting the HP Image Assistant installer...
-start "" "T:\TechServices-FP3\Techs\Jared\Scripts_J\DownloadStuff\hp-hpia-5.1.11.exe"
+start "" "hp-hpia-5.1.11.exe"
 goto question1
 
 :skipHPImageAssistant
@@ -57,7 +57,7 @@ goto question2
 :updateBitdefender
 echo.
 echo Updating Bitdefender...
-start powershell -ExecutionPolicy Bypass -File "T:\TechServices-FP3\Techs\Jared\Scripts_J\IndividualScripts\bitdefend.ps1"
+start powershell -ExecutionPolicy Bypass -File "bitdefend.ps1"
 echo.
 echo Launching Bitdefender Security Console...
 start "" "C:\Program Files\Bitdefender\Endpoint Security\EPConsole.exe"
@@ -92,7 +92,7 @@ goto question3
 :updateChrome
 echo.
 echo Updating Google Chrome...
-start /wait msiexec /i "T:\TechServices-FP3\Techs\Jared\Scripts_J\DownloadStuff\GoogleChromeStandaloneEnterprise64.msi" /norestart
+start /wait msiexec /i "GoogleChromeStandaloneEnterprise64.msi" /norestart
 echo.
 echo Google Chrome has been updated.
 goto question3
@@ -103,6 +103,7 @@ echo.
 echo Would you like to launch the Please Go Faster default combo? (Y/N)?
 echo.
 echo (Combo includes: chkdsk /f, sfc /scannow, Disk Cleanup, Defragment and Optimize Drives, gpupdate /force, and open Default Apps)
+echo.
 set /p userinput=
 if /I "%userinput%"=="y" goto launchAdminCmd
 if /I "%userinput%"=="yes" goto launchAdminCmd
@@ -130,7 +131,7 @@ echo 3. Run BIOS Update either through HP image assistant or please download dir
 echo.
 echo *****Optional Things You Can Do*****
 echo.
-echo 1. While the user is logged in, check the task manager startup programs to see if you can disable any pointless or resourse intensive programs from starting up with Windows
+echo 1. Check the task manager startup programs to see if you can disable any pointless or resourse intensive programs from starting up with Windows
 echo.
 echo 2. Check Program and Features for junk software that may be potentially slowing down the users computer
 echo.
