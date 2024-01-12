@@ -20,7 +20,7 @@ if (Test-Path $registryPath) {
             $userInput = Read-Host "Would you like to Regbang? (Y/N)"
             if ($userInput -eq "Y") {
                 # Run the batch script
-               & "T:\TechServices-FP3\Techs\Jared\Scripts - J\RegBangChecker\regRun.bat"
+               & "regRun.bat"
             }
         } else {
             Write-Host "Unexpected value: " $value.$valueName
