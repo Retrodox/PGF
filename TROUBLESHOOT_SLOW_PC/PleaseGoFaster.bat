@@ -67,11 +67,10 @@ if defined chromeVersion (
     echo Unable to determine the current version of Google Chrome.
 )
 :: Ask to update Chrome
-echo. 
-echo Your district's current version of Chrome is Version 119.0.6045.200 (Official Build) (64-bit)
+echo.
+echo Current version of installer in script for chrome: 124.0.6367.8
 echo.
 echo Would you like to update or install Google Chrome? (Y/N)?
-echo (Tested it and if you run this it will not remove prexisting bookmarks)
 echo.
 set /p chromeinput=
 if /I "%chromeinput%"=="y" goto updateChrome
@@ -82,7 +81,7 @@ goto question4
 echo.
 echo Updating Google Chrome...
 :: Use a relative path for the Google Chrome installer
-msiexec /i "%USERPROFILE%\Desktop\TROUBLESHOOT_SLOW_PC\DownloadStuff\GoogleChromeStandaloneEnterprise64.msi" /passive
+start "" ".\DownloadStuff\ChromeSetup.exe"
 echo.
 echo Google Chrome has been updated.
 goto question4
